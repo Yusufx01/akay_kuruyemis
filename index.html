@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Akay Kuruyemiş</title>
+
+  <!-- Stil sayfası -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Premium yazı tipleri -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Script dosyası -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Atla bağlantısı: klavye kullanıcıları için hızlı erişim -->
+  <a class="skip-link" href="#main">İçeriğe atla</a>
+  <!-- kaydırma ilerleme göstergesi -->
+  <div id="scrollProgress" class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ==========================
+    ÜST BÖLÜM / NAVİGASYON
+    ========================== -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home">Akay <span>Kuruyemiş</span></a>
+      <nav id="mainNav" class="main-nav" role="navigation" aria-label="Ana menü" aria-hidden="false">
+        <a href="#home">Ana Sayfa</a>
+        <a href="#products">Ürünler</a>
+        <a href="#features">Özellikler</a>
+        <a href="#about">Hakkımızda</a>
+        <a href="#contact">İletişim</a>
+      </nav>
+        <button class="menu-toggle" aria-label="Menüyü aç" id="menuToggle" aria-controls="mainNav" aria-expanded="false">☰</button>
+      <!-- Overlay menüyü kapatmak için kapatma butonu eklendi; başlangıçta ekran okuyucular için gizli -->
+        <button class="nav-close" id="navClose" aria-label="Menüyü kapat" aria-hidden="true">✕</button>
+    </div>
+  </header>
+
+  <!-- ==========================
+    HERO / GİRİŞ BÖLÜMÜ
+    ========================== -->
+  <main id="main" tabindex="-1" aria-hidden="false">
+    <section id="home" class="hero-section" data-animate>
+      <div class="hero-pattern"></div>
+      <div class="container hero-inner" data-animate="fade-right">
+          <!-- dekoratif hero arka plan (kuruyemiş temalı görsel CSS ile yüklenir) -->
+          <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-text" data-animate data-animate-delay="0.1s">
+          <h1>Akay Kuruyemiş</h1>
+  <button id="backToTop" class="back-to-top" aria-label="Sayfaya dön">↑</button>
+          <p class="lead">Doğallığın ve tazeliğin lezzeti — özenle seçilmiş, doğal kuruyemişler.</p>
+          <p class="sublead">Klasik tatlardan özel harmanlara; tanıtım amaçlı zengin ürün kataloğumuzla tanış.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#products">Ürünleri Gör</a>
+            <a class="btn btn-ghost" href="#about">Hakkımızda</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true" data-animate data-animate-delay="0.18s">
+          <!-- dekoratif yer tutucular — CSS bu alanı desenlerle stilize eder -->
+          <div class="visual-grid">
+            <div class="visual-item v1"></div>
+            <div class="visual-item v2"></div>
+            <div class="visual-item v3"></div>
+            <div class="visual-item v4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+      ÜRÜN VİTRİNİ (10+ ürün)
+      ========================== -->
+    <section id="products" class="products-section" data-animate>
+      <div class="container">
+        <header class="section-header" data-animate>
+          <h2>Ürün Kataloğu</h2>
+          <p class="section-sub">Tanıtım amaçlı, her bir ürünün kısa açıklaması ve fiyat bilgisi yer almaktadır.</p>
+        </header>
+
+  <!-- Arama & filtre (demo için) -->
+        <div class="products-controls" data-animate data-animate-delay="0.12s">
+          <input id="productSearch" class="search-input" type="search" placeholder="Ürün ara (örn. badem, fıstık...)" />
+          <select id="categoryFilter" class="select-filter" aria-label="Kategori filtre">
+            <option value="all">Tümü</option>
+          </select>
+
+          <!-- sıralama seçimi -->
+          <select id="sortSelect" class="select-filter" aria-label="Sırala">
+            <option value="default">Öne çıkan</option>
+            <option value="price-asc">Fiyat: Artan</option>
+            <option value="price-desc">Fiyat: Azalan</option>
+            <option value="title-asc">İsim: A → Z</option>
+          </select>
+
+          <!-- filtre butonları (hızlı filtreler) -->
+          <div id="filterChips" class="filter-chips" role="tablist" aria-label="Hızlı filtreler"></div>
+
+          <!-- favoriler modu düğmesi -->
+          <button id="favoritesToggle" class="btn btn-ghost" aria-pressed="false" aria-label="Sadece favoriler">Favoriler <span id="favCount" class="visually-hidden" aria-live="polite">0</span></button>
+        </div>
+
+        <div id="productGrid" class="product-grid" aria-live="polite">
+          <!-- Kartlar script.js tarafından dinamik eklenir (HTML temiz kalır) -->
+        </div>
+
+        <div class="products-note" data-animate data-animate-delay="0.18s">
+          <p>Favorilere eklenmiş ürün bulunmamaktadır!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+      ÖZELLİKLER (görsel geliştirmeler)
+      ========================== -->
+    <section id="features" class="features-section" data-animate>
+      <div class="container">
+        <header class="section-header" data-animate>
+          <h2>Neden Akay?</h2>
+          <p class="section-sub">Kalite, tazelik ve doğal tatlar — öne çıkan özelliklerimiz.</p>
+        </header>
+
+        <div class="features-grid" data-animate data-animate-delay="0.12s">
+          <article class="feature-card" data-animate data-animate-delay="0.14s">
+            <div class="feature-icon">🌿</div>
+            <h3>Doğal Seçim</h3>
+            <p>Ürünlerimiz kimyasal katkı içermez, doğal yollarla seçilir ve paketlenir.</p>
+          </article>
+          <article class="feature-card" data-animate data-animate-delay="0.18s">
+            <div class="feature-icon">⚖️</div>
+            <h3>Ölçü ve Kalite</h3>
+            <p>Hassas ölçüm ve kalite kontrol süreçleriyle en iyi ambalaj kalitesini sağlıyoruz.</p>
+          </article>
+          <article class="feature-card" data-animate data-animate-delay="0.22s">
+            <div class="feature-icon">🚚</div>
+            <h3>Hızlı Bilgilendirme</h3>
+            <p>İletişim kanallarımızla sipariş ve ürün hakkında hızlı bilgi alabilirsiniz.</p>
+          </article>
+          <article class="feature-card" data-animate data-animate-delay="0.26s">
+            <div class="feature-icon">🎯</div>
+            <h3>Özel Harmanlar</h3>
+            <p>Özel karışımlarımız ve harmanlarımızla farklı lezzet deneyimleri sunuyoruz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+      HAKKIMIZDA
+      ========================== -->
+    <section id="about" class="about-section" data-animate>
+      <div class="container" data-animate data-animate-delay="0.1s">
+        <h2>Hakkımızda</h2>
+        <div class="about-grid">
+          <div class="about-text" data-animate data-animate-delay="0.14s">
+            <p>Akay Kuruyemiş, geleneksel tarifleri koruyarak modern paketleme ve sunum ile sizlere doğal lezzetler sunar. Çiftçilerle doğrudan bağ kurar, mevsimine göre en iyi ürünleri temin ederiz.</p>
+            <p>Misyonumuz: sağlıklı ve lezzetli atıştırmalıkları erişilebilir kılmak. Vizyonumuz: tüm Türkiye'de tanınan, güvenilir ve tercih edilen lezzet markası olmak.</p>
+          </div>
+          <div class="about-visual" aria-hidden="true" data-animate data-animate-delay="0.18s">
+            <div class="about-collage">
+              <img src="images/badem.jpg" alt="Badem">
+              <img src="images/fistik.jpg" alt="Fıstık">
+              <img src="images/karisik-1.jpg" alt="Karışık Kuruyemiş">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+      İLETİŞİM
+      ========================== -->
+    <section id="contact" class="contact-section" data-animate>
+      <div class="container" data-animate data-animate-delay="0.1s">
+        <h2>İletişim</h2>
+        <div class="contact-grid">
+          <div class="contact-card" data-animate data-animate-delay="0.14s">
+            <h3>Adres</h3>
+            <p>Örnek Mahallesi, 123. Sokak No:4, Kadıköy, İstanbul</p>
+            <p><a href="https://www.google.com/maps?q=Örnek+Mahallesi+123+Sokak+No:4+Kadıköy+Istanbul" target="_blank" rel="noopener">Haritada Göster →</a></p>
+          </div>
+          <div class="contact-card map-card" aria-hidden="false" data-animate data-animate-delay="0.18s">
+            <h3>Konum (Harita)</h3>
+            <div class="map-embed" id="mapEmbed">
+              <iframe
+                src="https://www.google.com/maps?q=Örnek+Mahallesi+123+Sokak+Kadıköy+Istanbul&output=embed"
+                width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <div class="contact-card" data-animate data-animate-delay="0.22s">
+            <h3>Telefon</h3>
+            <p>0 (212) 555 1234</p>
+          </div>
+          <div class="contact-card" data-animate data-animate-delay="0.26s">
+            <h3>E-posta</h3>
+            <p>info@akaykuruyemis.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         STATS SECTION
+         ========================== -->
+    <section class="stats-section" data-animate="fade-up">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card" data-animate="fade-up" data-animate-delay="0">
+            <div class="stat-number" data-count="15">0</div>
+            <div class="stat-label">Yıllık Deneyim</div>
+          </div>
+          <div class="stat-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-label">Ürün Çeşidi</div>
+          </div>
+          <div class="stat-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="stat-number" data-count="10000">0</div>
+            <div class="stat-label">Mutlu Müşteri</div>
+          </div>
+          <div class="stat-card" data-animate="fade-up" data-animate-delay="300">
+            <div class="stat-number">%100</div>
+            <div class="stat-label">Doğal Ürünler</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         TESTIMONIALS SECTION
+         ========================== -->
+    <section class="testimonials-section" data-animate="fade-up">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-up">Müşterilerimiz Ne Diyor?</h2>
+        <div class="testimonials-grid">
+          <article class="testimonial-card" data-animate="fade-up" data-animate-delay="0">
+            <div class="testimonial-text">
+              "Akay Kuruyemiş'ten aldığım ürünlerin kalitesi ve tazeliği muhteşem. Özellikle bademler çok lezzetli, tüm arkadaşlarıma tavsiye ediyorum."
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AY</div>
+              <div class="testimonial-info">
+                <h4>Ayşe Yılmaz</h4>
+                <p>İstanbul</p>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </article>
+          <article class="testimonial-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="testimonial-text">
+              "Yıllardır Akay Kuruyemiş'i tercih ediyorum. Ürünler her zaman taze ve hijyenik ambalajlarda geliyor. Fiyat performans açısından harika!"
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MK</div>
+              <div class="testimonial-info">
+                <h4>Mehmet Kaya</h4>
+                <p>Ankara</p>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </article>
+          <article class="testimonial-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="testimonial-text">
+              "Online sipariş verdim, ertesi gün kapımdaydı. Ürünlerin kalitesi gerçekten çok iyi, ailece tüketiyoruz. Kesinlikle tavsiye ederim."
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">ZD</div>
+              <div class="testimonial-info">
+                <h4>Zeynep Demir</h4>
+                <p>İzmir</p>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         FOOTER
+         ========================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Akay Kuruyemiş © 2025</div>
+          <div class="footer-links">
+            <a href="#about">Hakkımızda</a>
+            <a href="#contact">İletişim</a>
+            <a href="#">Gizlilik</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ==========================
+    ÜRÜN DETAY MODALI (SEPET YOK)
+    ========================== -->
+  <div id="productModal" class="product-modal" aria-hidden="true">
+    <div class="product-modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Kapat">✕</button>
+      <div class="modal-grid">
+        <div class="modal-gallery">
+          <img id="modalImage" src="" alt="" />
+        </div>
+        <div class="modal-info">
+          <h3 id="modalTitle">Ürün Adı</h3>
+          <p id="modalCategory" class="meta"></p>
+          <p id="modalDescription"></p>
+          <p id="modalPrice" class="price"></p>
+          <ul id="modalFacts" class="facts">
+            <!-- dinamik özellikler (liste) -->
+          </ul>
+          <div class="modal-actions">
+            <a id="modalBack" class="btn btn-ghost" href="#products">Geri Dön</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yukarı Çık Butonu -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Yukarı Çık">↑</a>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/905551234567" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp ile İletişime Geç">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
