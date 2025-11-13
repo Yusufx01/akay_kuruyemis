@@ -1,0 +1,151 @@
+/* ==========================================================
+   Layout Styles — Header & Navigation
+   ========================================================== */
+
+.site-header{transition:padding var(--motion-time) var(--motion-ease), box-shadow var(--motion-time) var(--motion-ease), transform var(--motion-time) var(--motion-ease)}
+.site-header.shrink{
+  padding:6px 0;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.94));
+  box-shadow:0 8px 32px rgba(31,26,23,0.12);
+  transform:translateZ(0);
+}
+
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:200;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.88));
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 24px rgba(31,26,23,0.06);
+  height:var(--header-height);
+  display:flex;
+  align-items:center;
+  transition:all .32s var(--motion-ease);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:32px;
+  padding:12px 0;
+  position:relative;
+  width:100%;
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:800;
+  font-family:var(--font-heading);
+  color:var(--accent);
+  font-size:1.25rem;
+  text-decoration:none;
+  position:relative;
+  padding:6px 8px;
+  border-radius:8px;
+}
+.brand span{ color:var(--accent-2); font-weight:700 }
+
+.main-nav{display:flex; gap:22px; align-items:center; margin-left:auto}
+.main-nav{ position:relative; }
+.main-nav a{
+  color:var(--muted);
+  font-weight:700;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:10px;
+  transition:all .18s var(--motion-ease);
+  background:transparent;
+}
+.main-nav a:hover{
+  color:var(--accent);
+  transform:translateY(-3px);
+  background:linear-gradient(90deg, rgba(166,94,42,0.08), transparent);
+  box-shadow:0 4px 12px rgba(166,94,42,0.12);
+}
+.main-nav a::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:50%;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transform:translateX(-50%);
+  transition:width .28s var(--motion-ease);
+}
+.main-nav a:hover::after{ width:80%; }
+
+.menu-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  font-size:1.2rem;
+  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+}
+.menu-toggle.open{ transform: rotate(90deg); }
+
+.site-header.nav-open{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+}
+.site-header.nav-open .main-nav{
+  position:fixed !important;
+  left:0 !important; top:0 !important; right:0 !important; bottom:0 !important;
+  width:100vw !important;
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.995), rgba(255,250,245,0.995));
+  padding:48px 22px;
+  z-index:120000;
+  box-shadow:0 40px 80px rgba(31,26,23,0.12);
+  margin:0 !important;
+  border-radius:0 !important;
+  text-align:center;
+  animation: overlayIn .28s var(--motion-ease) both;
+}
+
+.site-header.nav-open .main-nav a{
+  font-size:1.45rem;
+  padding:18px 14px;
+  color:var(--text);
+}
+
+.site-header.nav-open .header-inner{ display:flex !important; }
+.site-header.nav-open .brand{ display:inline-flex !important; }
+
+@keyframes overlayIn{ from{ opacity:0; transform:translateY(-6px) } to{ opacity:1; transform:none } }
+@keyframes overlayOut{ from{ opacity:1 } to{ opacity:0 } }
+
+.nav-close{
+  position:fixed;
+  right:18px;
+  top:18px;
+  z-index:120005;
+  background:var(--card);
+  border:0;
+  font-size:20px;
+  padding:10px 12px;
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(31,26,23,0.08);
+  color:var(--accent-4);
+  display:none;
+  cursor:pointer;
+}
+.site-header.nav-open .nav-close{ display:block }
+.nav-close:focus{ outline:3px solid rgba(166,94,42,0.14); outline-offset:2px }
+
+.site-header.nav-open .main-nav{ animation: overlayIn .28s var(--motion-ease) both; }
+.site-header.nav-open .main-nav a:hover::after{ width:80%; }

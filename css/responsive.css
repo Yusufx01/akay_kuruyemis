@@ -1,0 +1,43 @@
+/* ==========================================================
+   Responsive Adjustments
+   ========================================================== */
+
+@media (max-width:680px){
+  :root{ --header-height: 64px; }
+}
+
+@media (max-width:980px){
+  .hero-inner{ grid-template-columns:1fr; gap:32px; }
+  .hero-showcase{ width:100%; max-width:520px; margin:0 auto; }
+  .hero-content{ max-width:100%; }
+  .hero-ctas{ justify-content:flex-start; }
+  .partners-track{ animation-duration:90s; }
+  .cta-banner-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .cta-actions{ width:100%; }
+  .cta-actions .btn{ flex:1 1 auto; justify-content:center; }
+  .process-timeline{ grid-template-columns:1fr 1fr; }
+  .about-grid{ grid-template-columns:1fr; }
+  .modal-grid{ grid-template-columns: 1fr; }
+  .modal-gallery img{ max-height:320px; }
+  .product-thumb{ height:180px; }
+  .product-grid{ grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; }
+  .product-card{ max-width:none; }
+}
+
+@media (max-width:680px){
+  .main-nav{ display:none; }
+  .menu-toggle{ display:inline-block; }
+  .hero-section{ padding:120px 0 80px; }
+  .hero-inner{ gap:28px; }
+  .hero-section h1{ font-size:2.2rem; }
+  .hero-stats-row{ gap:12px; }
+  .hero-stat{ min-width:120px; }
+  .hero-showcase{ margin:0; }
+  .showcase-content{ padding:20px; }
+  .product-card{ min-height:320px; }
+  .product-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+  .cta-banner-inner{ padding:32px; }
+  .cta-actions{ flex-direction:column; }
+  .process-timeline{ grid-template-columns:1fr; }
+  .faq-question{ padding:18px 20px; }
+}

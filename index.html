@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Akay Kuruyemiş: doğal, taze ve premium kuruyemiş çeşitleriyle profesyonel tanıtım sitesi." />
+  <meta name="keywords" content="kuruyemiş, badem, fındık, antep fıstığı, doğal atıştırmalık" />
+  <meta property="og:title" content="Akay Kuruyemiş" />
+  <meta property="og:description" content="Doğallığın ve tazeliğin lezzeti — Akay Kuruyemiş kataloğunu keşfedin." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yusufx01.github.io/akay_kuruyemis/" />
+  <meta property="og:image" content="images/karisik-1.jpg" />
   <title>Akay Kuruyemiş</title>
 
-  <!-- Stil sayfası -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Modüler stil dosyaları -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
   <!-- Premium yazı tipleri -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
 
-  <!-- Script dosyası -->
-  <script src="script.js" defer></script>
+  <!-- Script dosyaları -->
+  <script src="js/data.js" defer></script>
+  <script src="js/utils.js" defer></script>
+  <script src="js/favorites.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
   <!-- Atla bağlantısı: klavye kullanıcıları için hızlı erişim -->
@@ -27,7 +46,7 @@
     ========================== -->
   <header class="site-header" id="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="#home">Akay <span>Kuruyemiş</span></a>
+      <a class="brand" href="#home">Akay <sp      git statusan>Kuruyemiş</sp></a>
       <nav id="mainNav" class="main-nav" role="navigation" aria-label="Ana menü" aria-hidden="false">
         <a href="#home">Ana Sayfa</a>
         <a href="#products">Ürünler</a>
@@ -46,28 +65,76 @@
     ========================== -->
   <main id="main" tabindex="-1" aria-hidden="false">
     <section id="home" class="hero-section" data-animate>
-      <div class="hero-pattern"></div>
-      <div class="container hero-inner" data-animate="fade-right">
-          <!-- dekoratif hero arka plan (kuruyemiş temalı görsel CSS ile yüklenir) -->
-          <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-text" data-animate data-animate-delay="0.1s">
-          <h1>Akay Kuruyemiş</h1>
-  <button id="backToTop" class="back-to-top" aria-label="Sayfaya dön">↑</button>
-          <p class="lead">Doğallığın ve tazeliğin lezzeti — özenle seçilmiş, doğal kuruyemişler.</p>
-          <p class="sublead">Klasik tatlardan özel harmanlara; tanıtım amaçlı zengin ürün kataloğumuzla tanış.</p>
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/karisik-1.jpg">
+          <source src="https://cdn.coverr.co/videos/coverr-roasted-nuts-8579/1080p.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-content" data-animate data-animate-delay="0.12s">
+          <span class="hero-kicker">Yeni sezon hasat, garantili tazelik</span>
+          <h1>Doğal kuruyemiş deneyimini yeniden keşfet</h1>
+          <p class="lead">Akay Kuruyemiş, çiftlikten sofraya uzanan %100 doğal tedarik zinciriyle premium ürünler sunar.</p>
+          <p class="sublead">Geleneksel tarifler, modern ambalajlar ve sürdürülebilir üretim anlayışıyla fark yaratıyoruz.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="#products">Ürünleri Gör</a>
-            <a class="btn btn-ghost" href="#about">Hakkımızda</a>
+            <a class="btn btn-primary" href="#products">Ürünleri İncele</a>
+            <a class="btn btn-ghost" href="#contact">Toptan İletişim</a>
+            <a class="btn btn-link" href="#about">Marka Hikayemiz</a>
+          </div>
+          <div class="hero-stats-row">
+            <div class="hero-stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Yıllık Deneyim</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Ürün Çeşidi</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-number">%100</span>
+              <span class="stat-label">Doğal Kaynaklı</span>
+            </div>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-label">Sertifikalı kalite standartları</span>
+            <div class="trust-badges">
+              <span class="trust-badge">ISO 22000</span>
+              <span class="trust-badge">Helal Sertifikalı</span>
+              <span class="trust-badge">Soğuk Zincir</span>
+            </div>
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true" data-animate data-animate-delay="0.18s">
-          <!-- dekoratif yer tutucular — CSS bu alanı desenlerle stilize eder -->
-          <div class="visual-grid">
-            <div class="visual-item v1"></div>
-            <div class="visual-item v2"></div>
-            <div class="visual-item v3"></div>
-            <div class="visual-item v4"></div>
+        <div class="hero-showcase" data-animate data-animate-delay="0.28s">
+          <div class="showcase-card">
+            <div class="showcase-media">
+              <img src="images/karisik-1.jpg" alt="Karışık Kuruyemiş" loading="lazy" decoding="async" />
+              <span class="showcase-badge">En Çok Tercih Edilen</span>
+            </div>
+            <div class="showcase-content">
+              <h3>Karışık Gurme Harman</h3>
+              <p>Dengeli tat, özenle kavrulmuş premium harman. Seçili badem, fındık ve Antep fıstığı birleşimi.</p>
+              <ul class="showcase-list">
+                <li>%45 yerli üretim badem</li>
+                <li>Çift aşamalı kavurma tekniği</li>
+                <li>Vakumlu paketleme</li>
+              </ul>
+              <div class="showcase-meta">
+                <span class="meta-price">₺170 / 250g</span>
+                <span class="meta-rating" aria-label="4.9 üzerinden 5 yıldız">★★★★★ <strong>4.9</strong></span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-mini-testimonial">
+            <p>"Akay Kuruyemiş ile taze lezzeti keşfettik. Müşterilerimiz bayılıyor!"</p>
+            <div class="mini-author">
+              <span class="mini-avatar">AK</span>
+              <div>
+                <strong>Akay Market</strong>
+                <span>Kurumsal İş Ortağı</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -151,6 +218,30 @@
     </section>
 
     <!-- ==========================
+      REFERANSLAR / İŞ ORTAKLARI
+      ========================== -->
+    <section class="partners-section" data-animate>
+      <div class="container">
+        <div class="partners-header" data-animate>
+          <span class="partners-kicker">Güvenilir İş Ortaklarımız</span>
+          <h2>Türkiye'nin önde gelen markalarıyla çalışıyoruz</h2>
+        </div>
+        <div class="partners-marquee" role="list">
+          <div class="partners-track" id="partnersTrack">
+            <span class="partner-item" role="listitem">Anadolu Market</span>
+            <span class="partner-item" role="listitem">İstanbul Gurme</span>
+            <span class="partner-item" role="listitem">Ege Organik</span>
+            <span class="partner-item" role="listitem">Doğa Kozmetik</span>
+            <span class="partner-item" role="listitem">MetroLine</span>
+            <span class="partner-item" role="listitem">Akdeniz Hotels</span>
+            <span class="partner-item" role="listitem">Gourmet34</span>
+            <span class="partner-item" role="listitem">Fresho</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
       HAKKIMIZDA
       ========================== -->
     <section id="about" class="about-section" data-animate>
@@ -168,6 +259,92 @@
               <img src="images/karisik-1.jpg" alt="Karışık Kuruyemiş">
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+      ÜRETİM SÜRECİ
+      ========================== -->
+    <section class="process-section" data-animate>
+      <div class="container">
+        <h2>Dalağından Sofranıza Uzanan Yolculuk</h2>
+        <ol class="process-timeline">
+          <li class="process-step" data-animate data-animate-delay="0s">
+            <span class="step-index">01</span>
+            <h3>Hasat ve Seçim</h3>
+            <p>Yerel çiftçilerle birlikte mevsiminde hasat yapar, boyut, renk ve nem değerlerine göre elenmiş ürünleri seçeriz.</p>
+          </li>
+          <li class="process-step" data-animate data-animate-delay="0.12s">
+            <span class="step-index">02</span>
+            <h3>Özel Kavurma</h3>
+            <p>Düşük sıcaklıkta, aromasını kaybetmeyecek şekilde kavurma gerçekleştirir; tuz ve baharat oranlarını hassas ayarlarız.</p>
+          </li>
+          <li class="process-step" data-animate data-animate-delay="0.24s">
+            <span class="step-index">03</span>
+            <h3>Hızlı Paketleme</h3>
+            <p>Vakumlu paketleme ve soğuk zincir depolama ile ürünleri tazeliğini koruyacak şekilde sevkiyata hazırlarız.</p>
+          </li>
+          <li class="process-step" data-animate data-animate-delay="0.36s">
+            <span class="step-index">04</span>
+            <h3>Teslimat ve Destek</h3>
+            <p>Türkiye genelinde 24-72 saat arası teslimat, kurumsal sipariş desteği ve satış sonrası danışmanlık sunarız.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================
+      CTA BANNER
+      ========================== -->
+    <section class="cta-banner" data-animate>
+      <div class="container cta-banner-inner">
+        <div class="cta-text">
+          <span class="cta-kicker">Kurumsal çözümler</span>
+          <h2>Sizin için özel kuruyemiş paketleri hazırlayalım</h2>
+          <p>Markanıza özel ambalaj, hediyelik kutular ve restoran çözümleri için satış ekibimizle iletişime geçin.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#contact">Teklif Al</a>
+          <a class="btn btn-ghost" href="mailto:info@akaykuruyemis.com">Sunum Talep Et</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+      SSS
+      ========================== -->
+    <section class="faq-section" data-animate>
+      <div class="container">
+        <h2>Sık Sorulan Sorular</h2>
+        <div class="faq-items" role="list">
+          <article class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Tazelik kontrolü nasıl yapılıyor?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Her parti için nem, derece ve tat testleri uygulanır. 7 günden fazla bekleyen ürünlerimiz raflara çıkmadan önce ikinci kalite kontrol sürecinden geçer.</p>
+            </div>
+          </article>
+          <article class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Toptan sipariş için minimum miktar nedir?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Kurumsal siparişlerde minimum 10 kg, perakende siparişlerde ise 2 kg’dan itibaren özel fiyatlandırma sağlıyoruz.</p>
+            </div>
+          </article>
+          <article class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Özel karışım veya marka baskısı yapıyor musunuz?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Evet. Marka logonuza özel paket tasarımları ve tarifinize göre özel karışımlar hazırlayabiliriz. Detaylar için iletişime geçebilirsiniz.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
